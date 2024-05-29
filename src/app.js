@@ -9,7 +9,15 @@ app.use(express.json());
 }
 */
 app.get('/api/get-env', (req, res) => {
+    const number = process.env.NUMBER;
    //Write your code here
+
+   if(number){
+    res.status(200).json({number});
+   }else{
+    res.status(404).json({err: "Not Found"});
+   }
+
 });
 
 module.exports = app;
